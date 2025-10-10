@@ -72,12 +72,12 @@ void NotificationManager::notify(std::string text)
 
     if (!found)
     {
-        brls::Logger::info("Discarding notification \"{}\"", text);
+        brls::Logger::info("不显示通知 \"{}\"", text);
         return;
     }
 
     // Create the notification
-    brls::Logger::info("Showing notification \"{}\"", text);
+    brls::Logger::info("显示通知 \"{}\"", text);
 
     Notification* notification = new Notification(text);
     notification->setParent(this);

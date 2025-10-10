@@ -80,7 +80,7 @@ void TabFrame::addTab(std::string label, View* view)
     // Switch to first one as soon as we add it
     if (!this->rightPane)
     {
-        Logger::debug("Switching to the first tab");
+        Logger::debug("切换到第一个标签页");
         this->switchToView(view);
     }
 }

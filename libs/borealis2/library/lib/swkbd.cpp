@@ -117,7 +117,7 @@ bool Swkbd::openForNumber(std::function<void(int)> f, std::string headerText, st
     }
     catch (const std::exception& e)
     {
-        Logger::error("Could not parse input, did you enter a valid integer?");
+        Logger::error("无法解析输入，请确认您输入的是否是有效的整数？");
         return false;
     }
 #endif
