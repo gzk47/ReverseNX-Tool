@@ -44,7 +44,7 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 APP_TITLE   :=  ReverseNX-Tool
-APP_AUTHOR  :=  MasaGratoR
+APP_AUTHOR  :=  MasaGratoR, gzk_47汉化
 APP_VERSION :=  3.2.1
 ROMFS		:=	romfs
 
