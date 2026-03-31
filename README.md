@@ -1,85 +1,24 @@
-This doc has been made for releases: ReverseNX-Tool **1.3**, ReverseNX **0.33**
+This doc has been made for releases: ReverseNX-Tool **3.1.0**, SaltyNX **0.3.2a**
 
-ReverseNX-Tool is an additional tool to make managament of ReverseNX flags easier.
+ReverseNX-Tool is a tool that takes advantage of SaltyNX patches function and manages creating ReverseNX patches.
 
-https://github.com/masagrator/ReverseNX
-
--------------
-
-Tool has three operation modes: `global`, `titleid` and `disabled`.
-
-For `global` and `titleid` modes:
-
-If you want to change modes, press **+** button. 
-
-If you want to disable loading ReverseNX, press **ZR**. It will go to disabled mode.
-
-If you want to disable loading cheats on game boot in Atmosphere, press **ZL**.
-
-# global
-
-global mode is set by default. Sets **Docked** or **Handheld** performance mode for every game that you will boot (with **docked** as default).
-
-![global image](https://github.com/masagrator/ReverseNX-Tool/blob/master/docs/global.jpg?raw=true)
-
->"Detected docked global flag" means that plugin is forcing docked performance mode.
->
->"Detected handheld global flag" means that plugin is forcing handheld performance mode.
-
-If you want to force one of performance modes, you need to press
-
-**A** for Docked mode
-
-**B** for Handheld mode
+Installed SaltyNX is obligatory.
 
 -------------
 
-# titleid
+![Screen1 image](https://github.com/masagrator/ReverseNX-Tool/blob/master/docs/Screen2.jpg?raw=true)
+![Screen2 image](https://github.com/masagrator/ReverseNX-Tool/blob/master/docs/Screen1.jpg?raw=true)
 
-titleid mode sets docked or handheld performance mode for each game separately.
+-------------
 
-![titleid_image](https://github.com/masagrator/ReverseNX-Tool/blob/master/docs/titleid.jpg?raw=true)
+# Thanks to
 
-**It's not a manager of flags for games!** It only informs ReverseNX to create needed files in correct folders for first game you will boot and it will stay in that way. After booting first game you need to set again new performance mode if you want to change already set performance modes or create a new one. **So changing performance mode works only for first game you will boot after setting performance mode in titleid operation mode of ReverseNX-Tool!**
+All Borealis contributors
+https://github.com/natinusala/borealis
 
->"No change flag detected. ReverseNX-Tool disabled" means that ReverseNX will not change performance mode for next game you will boot.
->
->"Detected docked titleid flag" means that ReverseNX will change performance mode to **docked** for next game you will boot.
->
->"Detected handheld titleid flag" means that ReverseNX will change performance mode to **handheld** for next game you will boot.
+Sun-Research-University
 
-If you want to change it, press
+https://github.com/Sun-Research-University
 
-**A** for Docked mode
-
-**B** for Handheld mode
-
-If you want to bring default settings for game, press **Y**.
-
----
-
-# disabled
-
-Disabled mode locks loading plugins from SaltySD/plugins folder. 
-
-![titleid_image](https://github.com/masagrator/ReverseNX-Tool/blob/master/docs/disabled.jpg?raw=true)
-
-To turn off disabled mode, press **A**.
-
-To change cheats state, press **B**.
-
----
-
-# How to use cheats
-
-Cheats loaded by Atmosphere when game is booting are crashing OS. To avoid it I added to ReverseNX-Tool function for renaming cheats folders in Atmosphere/titles.
-
-If you want to use ReverseNX with cheats, You need to go in this order:
-
->Disable Cheats in ReverseNX-Tool
->
->Run game and wait for first sign of game loading after Nintendo logo will disappear
->
->Enable Cheats in ReverseNX-Tool
->
->Use Edizon or Checkpoint to apply cheats
+Support them on Ko-Fi
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X0LUTH)<br>
