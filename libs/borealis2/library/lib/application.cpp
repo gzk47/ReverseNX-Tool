@@ -235,6 +235,24 @@ bool Application::init(std::string title, Style style, Theme theme)
             Application::fontStash.regular = Application::loadFontFromMemory("regular", font.address, font.size, false);
         }
 
+        // Chinese Simplified font
+        rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseSimplified);
+        if (R_SUCCEEDED(rc))
+        {
+            Logger::info("Adding Switch shared Chinese Simplified font");
+            Application::fontStash.chinese = Application::loadFontFromMemory("chinese", font.address, font.size, false);
+            nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.chinese);
+        }
+
+        // Chinese Traditional font
+        rc = plGetSharedFontByType(&font, PlSharedFontType_ChineseTraditional);
+        if (R_SUCCEEDED(rc))
+        {
+            Logger::info("Adding Switch shared Chinese Traditional font");
+            Application::fontStash.chinese = Application::loadFontFromMemory("chinese", font.address, font.size, false);
+            nvgAddFallbackFontId(Application::vg, Application::fontStash.regular, Application::fontStash.chinese);
+        }
+
         // Korean font
         rc = plGetSharedFontByType(&font, PlSharedFontType_KO);
         if (R_SUCCEEDED(rc))
@@ -784,7 +802,7 @@ void Application::pushView(View* view, ViewAnimation animation)
     bool fadeOut = last && !last->isTranslucent() && !view->isTranslucent(); // play the fade out animation?
     bool wait    = animation == ViewAnimation::FADE; // wait for the old view animation to be done before showing the new one?
 
-    view->registerAction("Exit", Key::PLUS, [] { Application::quit(); return true; });
+    view->registerAction("退出", Key::PLUS, [] { Application::quit(); return true; });
     view->registerAction(
         "FPS", Key::MINUS, [] { Application::toggleFramerateDisplay(); return true; }, true);
 

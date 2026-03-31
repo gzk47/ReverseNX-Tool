@@ -7,14 +7,14 @@ TabOptionsFrame::TabOptionsFrame() : TabFrame() {
 		
 		brls::List* OptionsList = new brls::List();
 		
-		brls::Label* Warning = new brls::Label(brls::LabelStyle::DESCRIPTION, "Any game on this list that is in exceptions list will be ignored by SaltyNX.", true);
+		brls::Label* Warning = new brls::Label(brls::LabelStyle::DESCRIPTION, "对于32位游戏和黑名单中的游戏，修改将被忽略。", true);
 		OptionsList->addView(Warning);
 
 		//List all titles with flags
 		countGames = static_cast<uint32_t>(titles.size());
 		if (countGames > 160 && isAlbum) memorySafety = true;
 		for (uint32_t i = 0; i < countGames; i++) {
-			brls::SelectListItem* StatusItem = new brls::SelectListItem(titles.at(i).TitleName.c_str(), { "Handheld", "Docked", "System" }, (unsigned)titles.at(i).ReverseNX);
+			brls::SelectListItem* StatusItem = new brls::SelectListItem(titles.at(i).TitleName.c_str(), { "掌机模式", "底座模式", "系统默认" }, (unsigned)titles.at(i).ReverseNX);
 			
 			double textLength = (double)titles.at(i).TitleName.size();
 			if (isAllUpper(titles.at(i).TitleName.c_str()) && textLength >= 33) StatusItem->setTextSize((int)((19 / (pow(pow((textLength/33), (33/textLength)), 1.55)-0.06))));
@@ -33,20 +33,20 @@ TabOptionsFrame::TabOptionsFrame() : TabFrame() {
 			
 			OptionsList->addView(StatusItem);
 		}
-		if (memorySafety == true) brls::Application::notify("Disabled icons to prevent memory overflow.");
+		if (memorySafety == true) brls::Application::notify("为了防止内存溢出，已禁用图标显示。");
 		
 		//Add option to hide tab using cursed method
-		OptionsList->registerAction("Hide tab", brls::Key::L, [] {
+		OptionsList->registerAction("隐藏侧边栏", brls::Key::L, [] {
 			brls::Application::pushView(new FullOptionsFrame());
 			return true;
 		});
 		
-		this->addTab("Games", OptionsList);
+		this->addTab("游戏", OptionsList);
 		
 		//Settings
 		brls::List* SettingsList = new brls::List();
 		
-		brls::SelectListItem* SettingItem = new brls::SelectListItem("Enforce mode globally", { "Handheld", "Docked", "Disabled" }, (unsigned)getReverseNX(UINT64_MAX), "Option to force all games set to System in Games tab to run in one mode");
+		brls::SelectListItem* SettingItem = new brls::SelectListItem("全局强制模式", { "掌机模式", "底座模式", "禁用" }, (unsigned)getReverseNX(UINT64_MAX), "选择一种模式，设置为为系统默认的游戏将会调用该模式");
 		SettingItem->getValueSelectedEvent()->subscribe([](size_t selection) {
 				Flag changeFlag = (Flag)selection;
 				setReverseNX(UINT64_MAX, changeFlag, true);
@@ -55,8 +55,8 @@ TabOptionsFrame::TabOptionsFrame() : TabFrame() {
 		
 		SettingsList->addView(SettingItem);
 		
-		this->addTab("Settings", SettingsList);
+		this->addTab("设置", SettingsList);
 		
 		//About (check About_tab.cpp)
-		this->addTab("About", new AboutTab());
+		this->addTab("关于", new AboutTab());
 }
